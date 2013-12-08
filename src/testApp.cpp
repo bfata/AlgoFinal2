@@ -50,14 +50,32 @@ void testApp::checkOsc(){
         
         string addr = m.getAddress();
         
-        if(addr == "/1/slider"){
+        if(addr == "/1/fader1"){
             
-            int xPos = m.getArgAsInt32(0);
-            int yPos = m.getArgAsInt32(1);
+            float fader1 = m.getArgAsFloat(0);
+            ballPos.set(fader1,50);
+            cout << fader1 << endl;
+        }
+        if(addr == "/1/fader2"){
             
-            mousePos.set(xPos, yPos);
-        }else if(addr == "/1/fader1"){
-            //int to float problem here for the Vector2 ballPos
+            fader2 = m.getArgAsFloat(0);
+            
+        }
+        if(addr == "/1/fader3"){
+            
+            float fader3 = m.getArgAsFloat(0);
+        }
+        if(addr == "/2/xyz"){
+            float accX = m.getArgAsFloat(0);
+            float accY = m.getArgAsFloat(1);
+            float accZ = m.getArgAsFloat(2);
+            
+            cout << accX << endl;
+            
+            
+        }
+        
+        else if(addr == "/1/fader1"){
             float xPos = m.getArgAsFloat(0);
             int yPos = 1;//m.getArgAsInt32(1);
             
@@ -74,7 +92,7 @@ void testApp::draw(){
     
     for (int i = 0; i < particles.size(); i++){
         
-        particles[i].draw();
+        particles[i].draw(fader2);
     }
 
     

@@ -107,7 +107,7 @@ void Particle::update(){
     vel += force;
     pos += vel;
     // Change particle colors based on position1
-    r = ofMap( pos.x, 0, 1024, 0, 255);
+   // r = ofMap( pos.x, 0, 1024, 0, 255);
     g = ofMap( pos.y, 0, 768, 0, 255);
     
     if(pos.x < 100 || pos.x > 924 || pos.y < 80 || pos.y > 688){
@@ -116,7 +116,8 @@ void Particle::update(){
     
 }
 
-void Particle::draw(){
+void Particle::draw(float fader2){
+    fader2 = r;
     ofSetColor(r, g, b, a);
     ofCircle(pos.x, pos.y, size);
 }

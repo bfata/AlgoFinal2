@@ -29,4 +29,7 @@ public:
     ofxOscReceiver mReceiver;
     
     vector<Particle> particles;
+    
+    float fader1, fader2, fader3;
+    float accX, accY, accZ;
 };

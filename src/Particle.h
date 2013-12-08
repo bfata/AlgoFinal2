@@ -22,7 +22,7 @@ public:
     void addDamping();                      // damping
     void setInitCondition(float px, float py, float vx, float vy);  // starting force
     void update();
-    void draw();
+    void draw(float fader2);
     
     void addRepulsion(float px, float py, float radius, float strength);
     void addAttraction( float px, float py, float radius, float strength);
