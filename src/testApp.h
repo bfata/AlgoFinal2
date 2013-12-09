@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "ofxOsc.h"
 #include "Particle.h"
+#include "ofxFX.h"
 
 class testApp : public ofBaseApp{
     

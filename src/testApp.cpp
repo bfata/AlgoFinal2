@@ -26,13 +26,13 @@ void testApp::update(){
     
     for (int i = 0; i < particles.size(); i++){
         particles[i].resetForce();
-        particles[i].addAttraction(mouseX, mouseY, 1000, 0.05);
-        particles[i].addRepulsion(mouseX, mouseY, 30, 35);
+        particles[i].addAttraction(ballPos.x, ballPos.y, 1000, 0.05);
+        particles[i].addRepulsion(ballPos.x, ballPos.y, 30, 35);
         particles[i].addDamping();
         particles[i].update();
         
         if (i == 0){
-            particles[i].trail(mouseX, mouseY);
+            particles[i].trail(ballPos.x, ballPos.y);
         }else{
             particles[i].trail(particles[i-1].pos.x, particles[i-1].pos.y);
         }
@@ -53,7 +53,8 @@ void testApp::checkOsc(){
         if(addr == "/1/fader1"){
             
             float fader1 = m.getArgAsFloat(0);
-            ballPos.set(fader1,50);
+            float fader1Value = ofMap(fader1, 0, 1, 0, ofGetWindowWidth());
+            ballPos.set(fader1Value,ofGetWindowHeight()/2);
             cout << fader1 << endl;
         }
         if(addr == "/1/fader2"){
@@ -75,19 +76,19 @@ void testApp::checkOsc(){
             
         }
         
-        else if(addr == "/1/fader1"){
-            float xPos = m.getArgAsFloat(0);
-            int yPos = 1;//m.getArgAsInt32(1);
-            
-            ballPos.set(xPos, yPos);
-        }
+//        else if(addr == "/1/fader1"){
+//            float xPos = m.getArgAsFloat(0);
+//            int yPos = 1;//m.getArgAsInt32(1);
+//            
+//            ballPos.set(xPos, yPos);
+//        }
     }
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
     ofSetColor(255);
-    ofCircle(ballPos * 100, 20);
+    ofCircle(ballPos, 20);
     
     
     for (int i = 0; i < particles.size(); i++){

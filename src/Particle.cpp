@@ -118,6 +118,7 @@ void Particle::update(){
 
 void Particle::draw(float fader2){
     fader2 = r;
+  
     ofSetColor(r, g, b, a);
     ofCircle(pos.x, pos.y, size);
 }
