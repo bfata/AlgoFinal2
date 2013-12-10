@@ -12,12 +12,12 @@
 Particle::Particle(){
     setInitCondition(ofGetWindowWidth()/2, ofGetWindowHeight()/2, 0, 0);
     damping = 0.03f;
-    size = 1.5;
+    size = ofRandom(1, 3);
     //    r = ofRandom(0,80);
     g = ofRandom(50,120);
     b = ofRandom(100,140);
     r = ofRandom( ofMap( pos.x, 0, 1024, 0, 255));
-    a = 85;
+    a = ofRandom(40, 110);
 }
 
 void Particle::resetForce(){
@@ -104,21 +104,36 @@ void Particle::setInitCondition( float px, float py, float vx, float vy ){
 }
 
 void Particle::update(){
+    // Generate some noise based on where we are with x and y.  The particle slows down due to our multiplying the
+    // velocity by 0.97, but we still want a lot of noise motion.  for this reason we pass in something we know will keep moving.  Time!
+    // This is 3D noise.
+    
+    // Noise for jiggling particles
+    float noise = ofNoise(pos.x, pos.y*0.005, ofGetElapsedTimef() * 5.2) * 3.0;
+    pos += ofVec2f( cos(noise), cos(-noise));
+    
+    
     vel += force;
     pos += vel;
-    // Change particle colors based on position1
-   // r = ofMap( pos.x, 0, 1024, 0, 255);
+    
+   
     g = ofMap( pos.y, 0, 768, 0, 255);
     
-    if(pos.x < 100 || pos.x > 924 || pos.y < 80 || pos.y > 688){
-        a = 40;
-    }else  { a = 85;}
+    //Fade out closer to the edges
+//    if(pos.x < 100 || pos.x > 924 || pos.y < 80 || pos.y > 688){
+//        a = 40;
+//    }else  { a = 85;}
     
 }
 
-void Particle::draw(float fader2){
-    fader2 = r;
-  
-    ofSetColor(r, g, b, a);
+void Particle::draw(float fader1Value){
+    
+//    fader1Value = r;
+//    float whiteVal;
+//    whiteVal = (vel.x);
+//    cout << whiteVal << endl;
+//    ofSetColor(whiteVal*20, 23*vel.y);
+    
+    ofSetColor(255,255,255, a);
     ofCircle(pos.x, pos.y, size);
 }

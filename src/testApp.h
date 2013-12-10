@@ -4,6 +4,7 @@
 #include "ofxOsc.h"
 #include "Particle.h"
 #include "ofxFX.h"
+#include "ofxFft.h"
 
 class testApp : public ofBaseApp{
     
@@ -31,6 +32,9 @@ public:
     
     vector<Particle> particles;
     
-    float fader1, fader2, fader3;
-    float accX, accY, accZ;
+    float fader1, fader2, fader3, fader1Value, fader2Value;
+    float rotary1, rotary2, rotary3;
+    float push1, push2, push3;
+    
+    bool push;
 };

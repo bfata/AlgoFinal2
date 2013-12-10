@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		284DCB34184E558C0078D85A /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 284DCB32184E558C0078D85A /* Particle.cpp */; };
+		2863A8871856303500450AB1 /* ofxFluid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2863A8851856303500450AB1 /* ofxFluid.cpp */; };
+		2886149618558378006C604B /* ofxEasyFft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2886148218558378006C604B /* ofxEasyFft.cpp */; };
+		2886149718558378006C604B /* ofxFft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2886148418558378006C604B /* ofxFft.cpp */; };
+		2886149818558378006C604B /* ofxFftBasic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2886148618558378006C604B /* ofxFftBasic.cpp */; };
+		2886149918558378006C604B /* ofxFftw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2886148818558378006C604B /* ofxFftw.cpp */; };
+		2886149A18558378006C604B /* kiss_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = 2886149218558378006C604B /* kiss_fft.c */; };
+		2886149B18558378006C604B /* kiss_fftr.c in Sources */ = {isa = PBXBuildFile; fileRef = 2886149418558378006C604B /* kiss_fftr.c */; };
 		28DCEFDD1855332600C197AA /* ofxFXObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28DCEFD21855332600C197AA /* ofxFXObject.cpp */; };
 		2DCE4DD48AAD90D68EA4B336 /* IpEndpointName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACFF0289433368CB4156659B /* IpEndpointName.cpp */; };
 		4EB82DDCDBCEB19DF1BBC830 /* ofxOscReceiver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AFD7857B3FE8266C55254AA /* ofxOscReceiver.cpp */; };
@@ -91,6 +98,23 @@
 		27B31C24FC92945FCE1FC02E /* ofxUIBaseDraws.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxUIBaseDraws.h; path = ../../../../OFX/addons/ofxUI/src/ofxUIBaseDraws.h; sourceTree = SOURCE_ROOT; };
 		284DCB32184E558C0078D85A /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Particle.cpp; sourceTree = "<group>"; };
 		284DCB33184E558C0078D85A /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
+		2863A8851856303500450AB1 /* ofxFluid.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFluid.cpp; sourceTree = "<group>"; };
+		2863A8861856303500450AB1 /* ofxFluid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxFluid.h; sourceTree = "<group>"; };
+		2886148218558378006C604B /* ofxEasyFft.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxEasyFft.cpp; sourceTree = "<group>"; };
+		2886148318558378006C604B /* ofxEasyFft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxEasyFft.h; sourceTree = "<group>"; };
+		2886148418558378006C604B /* ofxFft.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFft.cpp; sourceTree = "<group>"; };
+		2886148518558378006C604B /* ofxFft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxFft.h; sourceTree = "<group>"; };
+		2886148618558378006C604B /* ofxFftBasic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFftBasic.cpp; sourceTree = "<group>"; };
+		2886148718558378006C604B /* ofxFftBasic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxFftBasic.h; sourceTree = "<group>"; };
+		2886148818558378006C604B /* ofxFftw.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFftw.cpp; sourceTree = "<group>"; };
+		2886148918558378006C604B /* ofxFftw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxFftw.h; sourceTree = "<group>"; };
+		2886148D18558378006C604B /* fftw3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fftw3.h; sourceTree = "<group>"; };
+		2886148F18558378006C604B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		2886149118558378006C604B /* _kiss_fft_guts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _kiss_fft_guts.h; sourceTree = "<group>"; };
+		2886149218558378006C604B /* kiss_fft.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kiss_fft.c; sourceTree = "<group>"; };
+		2886149318558378006C604B /* kiss_fft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kiss_fft.h; sourceTree = "<group>"; };
+		2886149418558378006C604B /* kiss_fftr.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kiss_fftr.c; sourceTree = "<group>"; };
+		2886149518558378006C604B /* kiss_fftr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kiss_fftr.h; sourceTree = "<group>"; };
 		28DCEFB91855332600C197AA /* ofxBlend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxBlend.h; sourceTree = "<group>"; };
 		28DCEFBA1855332600C197AA /* ofxClone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxClone.h; sourceTree = "<group>"; };
 		28DCEFBB1855332600C197AA /* ofxMask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxMask.h; sourceTree = "<group>"; };
@@ -247,6 +271,96 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2863A8831856303500450AB1 /* ofxFluid */ = {
+			isa = PBXGroup;
+			children = (
+				2863A8841856303500450AB1 /* src */,
+			);
+			name = ofxFluid;
+			sourceTree = "<group>";
+		};
+		2863A8841856303500450AB1 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				2863A8851856303500450AB1 /* ofxFluid.cpp */,
+				2863A8861856303500450AB1 /* ofxFluid.h */,
+			);
+			name = src;
+			path = ../../../../OFX/addons/ofxFluid/src;
+			sourceTree = "<group>";
+		};
+		2886148018558378006C604B /* ofxFft */ = {
+			isa = PBXGroup;
+			children = (
+				2886148118558378006C604B /* src */,
+				2886148A18558378006C604B /* libs */,
+			);
+			name = ofxFft;
+			sourceTree = "<group>";
+		};
+		2886148118558378006C604B /* src */ = {
+			isa = PBXGroup;
+			children = (
+				2886148218558378006C604B /* ofxEasyFft.cpp */,
+				2886148318558378006C604B /* ofxEasyFft.h */,
+				2886148418558378006C604B /* ofxFft.cpp */,
+				2886148518558378006C604B /* ofxFft.h */,
+				2886148618558378006C604B /* ofxFftBasic.cpp */,
+				2886148718558378006C604B /* ofxFftBasic.h */,
+				2886148818558378006C604B /* ofxFftw.cpp */,
+				2886148918558378006C604B /* ofxFftw.h */,
+			);
+			name = src;
+			path = ../../../../OFX/addons/ofxFft/src;
+			sourceTree = "<group>";
+		};
+		2886148A18558378006C604B /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				2886148B18558378006C604B /* fftw */,
+				2886149018558378006C604B /* kiss */,
+			);
+			name = libs;
+			path = ../../../../OFX/addons/ofxFft/libs;
+			sourceTree = "<group>";
+		};
+		2886148B18558378006C604B /* fftw */ = {
+			isa = PBXGroup;
+			children = (
+				2886148C18558378006C604B /* include */,
+				2886148E18558378006C604B /* lib */,
+			);
+			path = fftw;
+			sourceTree = "<group>";
+		};
+		2886148C18558378006C604B /* include */ = {
+			isa = PBXGroup;
+			children = (
+				2886148D18558378006C604B /* fftw3.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		2886148E18558378006C604B /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				2886148F18558378006C604B /* .gitignore */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		2886149018558378006C604B /* kiss */ = {
+			isa = PBXGroup;
+			children = (
+				2886149118558378006C604B /* _kiss_fft_guts.h */,
+				2886149218558378006C604B /* kiss_fft.c */,
+				2886149318558378006C604B /* kiss_fft.h */,
+				2886149418558378006C604B /* kiss_fftr.c */,
+				2886149518558378006C604B /* kiss_fftr.h */,
+			);
+			path = kiss;
+			sourceTree = "<group>";
+		};
 		28DCEFB61855332600C197AA /* ofxFX */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +506,8 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				2863A8831856303500450AB1 /* ofxFluid */,
+				2886148018558378006C604B /* ofxFft */,
 				28DCEFB61855332600C197AA /* ofxFX */,
 				E6053AB7FEC63D5F83825B88 /* ofxOsc */,
 				A492CE86424AB8905550BFD8 /* ofxUI */,
@@ -681,17 +797,24 @@
 				98D5C8BE6855DFB82389EF1B /* ofxOscParameterSync.cpp in Sources */,
 				4EB82DDCDBCEB19DF1BBC830 /* ofxOscReceiver.cpp in Sources */,
 				28DCEFDD1855332600C197AA /* ofxFXObject.cpp in Sources */,
+				2886149818558378006C604B /* ofxFftBasic.cpp in Sources */,
 				D993B8239A2AE0DB64C3BED6 /* ofxOscSender.cpp in Sources */,
+				2886149718558378006C604B /* ofxFft.cpp in Sources */,
 				2DCE4DD48AAD90D68EA4B336 /* IpEndpointName.cpp in Sources */,
 				A0B6C0F560911CB6C464CE57 /* NetworkingUtils.cpp in Sources */,
+				2886149618558378006C604B /* ofxEasyFft.cpp in Sources */,
 				BE2367FD2A232B44924FC542 /* UdpSocket.cpp in Sources */,
+				2886149918558378006C604B /* ofxFftw.cpp in Sources */,
 				D052FBB15D29479BAC13888D /* NetworkingUtilsWin.cpp in Sources */,
 				DA8404B21847FEC67EF3BBBA /* UdpSocketWin.cpp in Sources */,
 				9A0593776804808C1614FFE0 /* OscOutboundPacketStream.cpp in Sources */,
 				284DCB34184E558C0078D85A /* Particle.cpp in Sources */,
+				2886149A18558378006C604B /* kiss_fft.c in Sources */,
+				2863A8871856303500450AB1 /* ofxFluid.cpp in Sources */,
 				ED0180001E9AB956837298B8 /* OscPrintReceivedElements.cpp in Sources */,
 				77C2E94C075049D7F4187191 /* OscReceivedElements.cpp in Sources */,
 				7794F5538C2D16D77DFB5227 /* OscTypes.cpp in Sources */,
+				2886149B18558378006C604B /* kiss_fftr.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
