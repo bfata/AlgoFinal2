@@ -41,6 +41,7 @@ public:
     float counter;
     
     int particleR, particleG, particleB, particleAlpha;
+    int w, h;
     
     bool push, drawLines;
     

@@ -13,6 +13,9 @@ void testApp::setup(){
     
     particleCount = 200;
     
+    w = ofGetWindowWidth();
+    h = ofGetWindowHeight();
+    
     
     for (int i = 0; i < particleCount; i++){
         Particle myParticle;
@@ -64,7 +67,7 @@ void testApp::update(){
 void testApp::draw(){
     ofSetColor(255);
     ofCircle(ballPos, 20);
-    
+
    ofColor crazyColor = ofColor(particleR,255,255,255);
     
     // Why is one line thicker?
