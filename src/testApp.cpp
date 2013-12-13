@@ -37,7 +37,7 @@ void testApp::setup(){
 void testApp::update(){
     checkOsc();
     
-    ballPos.set(fader1Value*ofGetWindowWidth(),ofGetWindowHeight()/2);
+    ballPos.set(fader1Value,ofGetWindowHeight()/2);
     
     for (int i = 0; i < particleCount; i++){
         particles[i].resetForce();
