@@ -13,11 +13,11 @@ Particle::Particle(){
     setInitCondition(ofGetWindowWidth()/2, ofGetWindowHeight()/2, 0, 0);
     damping = 0.03f;
     size = ofRandom(1, 3);
-    //    r = ofRandom(0,80);
-    g = ofRandom(50,120);
-    b = ofRandom(100,140);
-    r = ofRandom( ofMap( pos.x, 0, 1024, 0, 255));
     a = ofRandom(40, 110);
+    r = 255;
+    g = 255;
+    b = 255;
+   
 }
 
 void Particle::resetForce(){
@@ -109,15 +109,16 @@ void Particle::update(){
     // This is 3D noise.
     
     // Noise for jiggling particles
-    float noise = ofNoise(pos.x, pos.y*0.005, ofGetElapsedTimef() * 5.2) * 3.0;
+    float noise = ofNoise(pos.x*0.05, pos.y*ofRandom(-1,1), ofGetElapsedTimef() * 2.2) * 3.0;
     pos += ofVec2f( cos(noise), cos(-noise));
     
-    
+    vel+= ofVec2f(-.02, 0);
     vel += force;
     pos += vel;
     
    
-    g = ofMap( pos.y, 0, 768, 0, 255);
+//    g = ofMap( pos.y, 0, 768, 0, 255);
+//    b = ofMap(pos.x, 0, 1024, 0, 255);
     
     //Fade out closer to the edges
 //    if(pos.x < 100 || pos.x > 924 || pos.y < 80 || pos.y > 688){
@@ -126,14 +127,12 @@ void Particle::update(){
     
 }
 
-void Particle::draw(float fader1Value){
+void Particle::draw(float fader1Value, ofColor _particleColor){
     
-//    fader1Value = r;
-//    float whiteVal;
-//    whiteVal = (vel.x);
-//    cout << whiteVal << endl;
-//    ofSetColor(whiteVal*20, 23*vel.y);
     
-    ofSetColor(255,255,255, a);
+    particleColor = ofColor(r, g, b, a);
+    particleColor = _particleColor;
+
+    ofSetColor(particleColor);
     ofCircle(pos.x, pos.y, size);
 }

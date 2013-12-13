@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		284DCB34184E558C0078D85A /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 284DCB32184E558C0078D85A /* Particle.cpp */; };
 		2863A8871856303500450AB1 /* ofxFluid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2863A8851856303500450AB1 /* ofxFluid.cpp */; };
+		2869A815185AA6EF0026F959 /* ofxFluid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2869A813185AA6EF0026F959 /* ofxFluid.cpp */; };
 		2886149618558378006C604B /* ofxEasyFft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2886148218558378006C604B /* ofxEasyFft.cpp */; };
 		2886149718558378006C604B /* ofxFft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2886148418558378006C604B /* ofxFft.cpp */; };
 		2886149818558378006C604B /* ofxFftBasic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2886148618558378006C604B /* ofxFftBasic.cpp */; };
@@ -100,6 +101,8 @@
 		284DCB33184E558C0078D85A /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
 		2863A8851856303500450AB1 /* ofxFluid.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFluid.cpp; sourceTree = "<group>"; };
 		2863A8861856303500450AB1 /* ofxFluid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxFluid.h; sourceTree = "<group>"; };
+		2869A813185AA6EF0026F959 /* ofxFluid.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFluid.cpp; sourceTree = "<group>"; };
+		2869A814185AA6EF0026F959 /* ofxFluid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxFluid.h; sourceTree = "<group>"; };
 		2886148218558378006C604B /* ofxEasyFft.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxEasyFft.cpp; sourceTree = "<group>"; };
 		2886148318558378006C604B /* ofxEasyFft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxEasyFft.h; sourceTree = "<group>"; };
 		2886148418558378006C604B /* ofxFft.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFft.cpp; sourceTree = "<group>"; };
@@ -284,6 +287,24 @@
 			children = (
 				2863A8851856303500450AB1 /* ofxFluid.cpp */,
 				2863A8861856303500450AB1 /* ofxFluid.h */,
+			);
+			name = src;
+			path = ../../../../OFX/addons/ofxFluid/src;
+			sourceTree = "<group>";
+		};
+		2869A811185AA6EF0026F959 /* ofxFluid */ = {
+			isa = PBXGroup;
+			children = (
+				2869A812185AA6EF0026F959 /* src */,
+			);
+			name = ofxFluid;
+			sourceTree = "<group>";
+		};
+		2869A812185AA6EF0026F959 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				2869A813185AA6EF0026F959 /* ofxFluid.cpp */,
+				2869A814185AA6EF0026F959 /* ofxFluid.h */,
 			);
 			name = src;
 			path = ../../../../OFX/addons/ofxFluid/src;
@@ -506,6 +527,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				2869A811185AA6EF0026F959 /* ofxFluid */,
 				2863A8831856303500450AB1 /* ofxFluid */,
 				2886148018558378006C604B /* ofxFft */,
 				28DCEFB61855332600C197AA /* ofxFX */,
@@ -794,6 +816,7 @@
 				E4B69E210A3A1BDC003C02F2 /* testApp.cpp in Sources */,
 				C4DD974EAB7A927790BA95FE /* ofxOscBundle.cpp in Sources */,
 				C70D60C95D02ADEADB8ED536 /* ofxOscMessage.cpp in Sources */,
+				2869A815185AA6EF0026F959 /* ofxFluid.cpp in Sources */,
 				98D5C8BE6855DFB82389EF1B /* ofxOscParameterSync.cpp in Sources */,
 				4EB82DDCDBCEB19DF1BBC830 /* ofxOscReceiver.cpp in Sources */,
 				28DCEFDD1855332600C197AA /* ofxFXObject.cpp in Sources */,

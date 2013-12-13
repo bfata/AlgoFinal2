@@ -4,6 +4,7 @@
 #include "ofxOsc.h"
 #include "Particle.h"
 #include "ofxFX.h"
+#include "ofxFluid.h"
 #include "ofxFft.h"
 
 class testApp : public ofBaseApp{
@@ -27,14 +28,21 @@ public:
     void checkOsc();
     
     ofVec2f mousePos;
-    ofVec2f ballPos;
+    ofVec2f ballPos, shipPos;
     ofxOscReceiver mReceiver;
     
     vector<Particle> particles;
     
-    float fader1, fader2, fader3, fader1Value, fader2Value;
-    float rotary1, rotary2, rotary3;
-    float push1, push2, push3;
+    float particleCount;
     
-    bool push;
+    float fader1, fader2, fader3, fader1Value, fader2Value, fader3Value;
+    float rotary1, rotary2, rotary3, rotary1Value, rotary2Value, rotary3Value;
+    float push1, push2, push3;
+    float counter;
+    
+    int particleR, particleG, particleB, particleAlpha;
+    
+    bool push, drawLines;
+    
+    ofImage ship;
 };

@@ -11,24 +11,44 @@ void testApp::setup(){
     ofEnableAlphaBlending();
     ofEnableSmoothing();
     
-    for (int i = 0; i < 10000; i++){
+    particleCount = 200;
+    
+    
+    for (int i = 0; i < particleCount; i++){
         Particle myParticle;
-        myParticle.setInitCondition(ofRandom(0,1000), ofRandom(0,1000), 0, 0);
+        myParticle.setInitCondition(ofRandom(ofGetWindowWidth()), ofRandom(0,ofGetWindowHeight()+20), 0, 0);
         myParticle.damping = ofRandom(0.01,0.05);
         particles.push_back(myParticle);
     }
+    ship.loadImage("ship.png");
+    ship.rotate90(1);
+    ship.setAnchorPoint(20, 25);
+    
+    particleAlpha = ofRandom(40,110);
+    
+    particleR = 255;
+    
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
     checkOsc();
     
-    for (int i = 0; i < particles.size(); i++){
+    ballPos.set(fader1Value*ofGetWindowWidth(),ofGetWindowHeight()/2);
+    
+    for (int i = 0; i < particleCount; i++){
         particles[i].resetForce();
         particles[i].addAttraction(ballPos.x, ballPos.y, 1000, fader2Value);
         particles[i].addRepulsion(ballPos.x, ballPos.y, 30, 35);
+        particles[i].addRepulsion(shipPos.x, shipPos.y, 30, 35);
+
         particles[i].addDamping();
         particles[i].update();
+        
+        if(particles[i].pos.x < 0){
+            particles[i].pos.x = ofGetWindowWidth()+2;
+            particles[i].pos.y = ofRandom(ofGetWindowHeight());
+        }
         
         // Have particles trail one another
 //        if (i == 0){
@@ -36,24 +56,44 @@ void testApp::update(){
 //        }else{
 //            particles[i].trail(particles[i-1].pos.x, particles[i-1].pos.y);
 //        }
-        
     }
+    
+    counter = counter + 0.0013f;
 }
 //--------------------------------------------------------------
 void testApp::draw(){
     ofSetColor(255);
     ofCircle(ballPos, 20);
     
+   ofColor crazyColor = ofColor(particleR,255,255,255);
     
-    for (int i = 0; i < particles.size(); i++){
+    // Why is one line thicker?
+    
+    for (int i = 1; i < particles.size()-1; i++){
         //Lines//
         //
-//        ofLine(particles[i].pos.x, particles[i].pos.y, particles[i-1].pos.x, particles[i-1].pos.y);
+        ofLine(particles[i].pos.x, particles[i].pos.y, particles[i-1].pos.x, particles[i-1].pos.y);
         
-        particles[i].draw(fader2);
+        //check size of particles
+        if (particles[i].size == 2){
+            
+        }
+        
+        particles[i].draw(fader2, crazyColor);
     }
     
+ 
+//    particles[0].draw(fader2, crazyColor);
+    ofSetColor(255);
     
+    shipPos.x = 20+ 500* sin(counter);
+    if (shipPos.x < -60) {
+        shipPos.x *= -1;
+    }
+    shipPos.y = ofGetWindowHeight()/2;
+        
+    ship.draw(shipPos.x,shipPos.y, ship.getWidth()/5, ship.getWidth()/5);
+
     
 }
 
@@ -68,29 +108,24 @@ void testApp::checkOsc(){
         string addr = m.getAddress();
         //Faders
         if(addr == "/1/fader1"){
-            
              fader1 = m.getArgAsFloat(0);
-            fader1Value = ofMap(fader1, 0, 1, 0, ofGetWindowWidth());
-            ballPos.set(fader1Value,ofGetWindowHeight()/2);
-//            cout << fader1 << endl;
+            fader1Value = ofMap(fader1, 0, 127, 0, 1);
         }
         if(addr == "/1/fader2"){
             
             fader2 = m.getArgAsFloat(0);
-            fader2Value = ofMap(fader2, 0, 1, 0.03, 0.5);
-            
-            
+            fader2Value = ofMap(fader2, 0, 127, 0.03, 0.5);
         }
         if(addr == "/1/fader3"){
             
             fader3 = m.getArgAsFloat(0);
+            fader3Value = ofMap(fader3, 0, 127, 0, 100);
         }
         //Rotary Knobs
         if(addr == "/1/rotary1"){
             
             rotary1 = m.getArgAsFloat(0);
-            cout << rotary1 << endl;
-            
+        
             
         }
         if(addr == "/1/rotary2"){
@@ -102,11 +137,12 @@ void testApp::checkOsc(){
             
             rotary3 = m.getArgAsFloat(0);
             
+            
         }
         if(addr == "/1/push1"){
             
             push1 = m.getArgAsFloat(0);
-            if (push1 == 1) {
+            if (push1 == 127) {
                 push = true;
                 // SPLODE
                 if( push ==true){
@@ -150,6 +186,9 @@ void testApp::checkOsc(){
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
+    if (key == '1') {
+        particleR = 0;
+    }
     
 }
 
