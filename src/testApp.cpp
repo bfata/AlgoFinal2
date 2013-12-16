@@ -26,6 +26,7 @@ void testApp::setup(){
     ship.loadImage("ship.png");
     ship.rotate90(1);
     ship.setAnchorPoint(20, 25);
+    ship.resize( ship.getWidth()/5, ship.getWidth()/5);
     
     particleAlpha = ofRandom(40,110);
     
@@ -37,8 +38,8 @@ void testApp::setup(){
 void testApp::update(){
     checkOsc();
     
-    ballPos.set(fader1Value,ofGetWindowHeight()/2);
-    
+    ballPos.set(fader1 * 400,ofGetWindowHeight()/2);
+   // cout << fader1Value << endl;
     for (int i = 0; i < particleCount; i++){
         particles[i].resetForce();
         particles[i].addAttraction(ballPos.x, ballPos.y, 1000, fader2Value);
@@ -75,7 +76,7 @@ void testApp::draw(){
     for (int i = 1; i < particles.size()-1; i++){
         //Lines//
         //
-        ofLine(particles[i].pos.x, particles[i].pos.y, particles[i-1].pos.x, particles[i-1].pos.y);
+//        ofLine(particles[i].pos.x, particles[i].pos.y, particles[i-1].pos.x, particles[i-1].pos.y);
         
         //check size of particles
         if (particles[i].size == 2){
@@ -95,7 +96,7 @@ void testApp::draw(){
     }
     shipPos.y = ofGetWindowHeight()/2;
         
-    ship.draw(shipPos.x,shipPos.y, ship.getWidth()/5, ship.getWidth()/5);
+    ship.draw(shipPos.x,shipPos.y);
 
     
 }
@@ -107,17 +108,20 @@ void testApp::checkOsc(){
     while (mReceiver.hasWaitingMessages() ) {
         ofxOscMessage  m;
         mReceiver.getNextMessage(&m);
-        
         string addr = m.getAddress();
+        
         //Faders
         if(addr == "/1/fader1"){
              fader1 = m.getArgAsFloat(0);
-            fader1Value = ofMap(fader1, 0, 127, 0, 1);
+//            fader1Value = ofMap(fader1, 0, 1, 0, 127);
+//            cout << fader1Value << endl;
+            
+            
         }
         if(addr == "/1/fader2"){
             
             fader2 = m.getArgAsFloat(0);
-            fader2Value = ofMap(fader2, 0, 127, 0.03, 0.5);
+            fader2Value = ofMap(fader2, 0, 1, 0.03, 0.5);
         }
         if(addr == "/1/fader3"){
             
@@ -163,27 +167,6 @@ void testApp::checkOsc(){
             push = false;
             }
         }
-
-
-
-        
-        //Button "Push"
-        if(addr == "/2/xyz"){
-            float accX = m.getArgAsFloat(0);
-            float accY = m.getArgAsFloat(1);
-            float accZ = m.getArgAsFloat(2);
-            
-            cout << accX << endl;
-            
-            
-        }
-        
-//        else if(addr == "/1/fader1"){
-//            float xPos = m.getArgAsFloat(0);
-//            int yPos = 1;//m.getArgAsInt32(1);
-//            
-//            ballPos.set(xPos, yPos);
-//        }
     }
 }
 
